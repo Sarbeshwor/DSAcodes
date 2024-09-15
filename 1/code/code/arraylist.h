@@ -29,7 +29,6 @@ void clear(ArrayList *list)
     // clear the list but do not free the array
     list->size = 0;
     list->position = 0;
-    list->position = -1;
     // modify the size, capacity, and current position
 }
 
@@ -88,10 +87,10 @@ void insert(ArrayList *list, int value)
 {
     // printf("Implement insert\n");
     // call resize if necessary
-    if (list->size>=list->capacity)
+    if (list->size==list->capacity)
     {
         resize(list,list->capacity*2);
-        printf("resized array \n");
+        // printf("resized array \n");
     }
     
     // shift the elements to the right to make space
@@ -101,7 +100,9 @@ void insert(ArrayList *list, int value)
     }
     
     // add value at the current position
+    // list->array[]
     list->array[list->position]=value;
+    
     list->size++;
     printf("inserted %d\n",value);
 }
@@ -162,7 +163,7 @@ void move_to_start(ArrayList *list)
 
 void move_to_end(ArrayList *list)
 {
-    printf("Implement move_to_end\n");
+    // printf("Implement move_to_end\n");
     // consider the cases when the list is empty
     printf("moved current position to end \n");
 
@@ -174,6 +175,8 @@ void prev(ArrayList *list)
     // printf("Implement prev\n");
     if (list->position==0)
     {
+               printf("current position is at start\n");
+
        return;
     }
     else{
@@ -186,10 +189,12 @@ void prev(ArrayList *list)
 
 void next(ArrayList *list)
 {
-    printf("Implement next\n");
     if (list->position==list->size-1)
     {
+        printf("current position is at end\n");
         return;
+        
+
     }
     else{
         printf("moved current position from %d to %d\n", list->position, list->position + 1);
