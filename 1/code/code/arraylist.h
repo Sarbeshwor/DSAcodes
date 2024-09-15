@@ -75,7 +75,7 @@ void append(ArrayList *list, int value)
       if (list->size==list->capacity)
     {
         resize(list, list->capacity * 2);
-            printf("appended %d \n",value);
+            //printf("appended %d \n",value);
 
     }
 
@@ -91,6 +91,7 @@ void insert(ArrayList *list, int value)
     if (list->size>=list->capacity)
     {
         resize(list,list->capacity*2);
+        printf("resized array \n");
     }
     
     // shift the elements to the right to make space
