@@ -81,17 +81,19 @@ void append(LinkedList *list, int value)
     //     list->current_position = new_node;
     // }
     // jaba list empty huncha ra hudaina
-    if (list->size != 0)
+    printf("appended %d\n",value);
+    if (list->size == 0)
     {
-        list->tail->next = new_node;
-        new_node->prev = list->tail;
-        list->tail = new_node;
-    }
-    else
-    {
+       
         list->head = new_node;
         list->tail = new_node;
         list->current_position = new_node;
+    }
+    else
+    {
+         list->tail->next = new_node;
+        new_node->prev = list->tail;
+        list->tail = new_node;
     }
     list->size++;
 }
@@ -127,17 +129,18 @@ void insert(LinkedList *list, int value)
 int remove_at_current(LinkedList *list)
 {
     // printf("Implement remove_at_current\n");
-    if (list->current_position == NULL)
+    if (list->size == 0)
     {
         printf("empty list\n");
         return -1;
     }
     Node *removing_value = list->current_position;
     int value = list->current_position->data;
-    if (removing_value->prev == NULL)
+    if (removing_value== list->head)
     {
+        removing_value->next->prev=NULL;
         list->head = removing_value->next;
-        list->current_position=list->head;
+        removing_value=list->head;
     }
     else if (list->size==1)
     {
@@ -150,10 +153,11 @@ int remove_at_current(LinkedList *list)
     // {
     //     remove_value->prev->next = remove_value->next;
     // }
-    else if (removing_value->next == NULL)
+    else if (removing_value->next == list->tail)
     {
+        removing_value->prev->next=NULL;
         list->tail = removing_value->prev;
-        list->current_position=list->tail;
+        removing_value=list->tail;
     }
     // else
     // {
@@ -177,7 +181,7 @@ int remove_at_current(LinkedList *list)
     free(removing_value);
     list->size--;
     printf("removed %d\n", value);
-    return value;
+    return -1;
 
     // consider the case when current code is at the begining or at the end
 }
@@ -216,7 +220,7 @@ void move_to_end(LinkedList *list)
     // printf("Implement move_to_end\n");
     list->current=list->size-1;
     list->current_position = list->tail;
-    printf("moved current position to 0\n");
+    printf("moved current position to end\n");
 }
 
 void prev(LinkedList *list)
@@ -224,13 +228,15 @@ void prev(LinkedList *list)
     // printf("Implement prev\n");
     if (list->current_position->prev != NULL)
     {
-        printf("moved current position from %d to %d\n", list->current_position, list->current_position + 1);
+        printf("moved current position from %d to %d\n", list->current, list->current+ 1);
 
         list->current_position = list->current_position->prev;
         list->current--;
     }
+    else{
+            printf("current position is at start\n");
 
-        printf("current position is at start\n");
+    }
     
 }
 
@@ -239,7 +245,7 @@ void next(LinkedList *list)
     // printf("Implement next\n");
     if (list->current_position->next != NULL)
     {
-        printf("moved from %d to %d", list->current_position, list->current_position + 1);
+        printf("moved from %d to %d", list->current, list->current + 1);
         list->current_position = list->current_position->next;
         list->current++;
     }
@@ -264,7 +270,7 @@ void move_to_position(LinkedList *list, int position)
         current = current->next;
     }
     list->current_position=current;
-    printf("moved from %d to %d\n", list->current_position, position);
+    printf("moved from %d to %d\n", list->current, position);
 
     list->current=position;
     // list->current_position = current;
@@ -292,20 +298,21 @@ int get_current_element(LinkedList *list)
     // printf("Implement get_current_element\n");
     // return the value at the current position
     printf("current element is %d\n", list->current_position->data);
-    return;
+    return -1;
 }
 
 void print_list(LinkedList *list)
 {
     // printf("< list elements here >");
     Node *temp = list->head;
-    printf("<");
-    if (list->size = 0)
+    if (list->size == 0)
     {
-        printf(" >\n");
+        printf("<  >\n");
         return;
     }
-    while (temp != NULL)
+    else{
+        printf("<");
+         while (temp != NULL)
     {
         if (temp == list->current_position)
         {
@@ -316,6 +323,8 @@ void print_list(LinkedList *list)
         temp = temp->next;
     }
     printf(">\n");
+    }
+   
 }
 
 void free_list(LinkedList *list)
