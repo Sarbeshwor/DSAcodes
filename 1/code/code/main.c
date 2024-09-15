@@ -1,4 +1,4 @@
-//#include "arraylist.h"
+#include "arraylist.h"
 #include "lind.h"
 #include <stdio.h>
 
@@ -79,6 +79,7 @@ int main()
         else if (func == 12)
         {
             append(&list, param);
+            printf("appended %d\n",param);
         }
         else if (func == 13)
         {
