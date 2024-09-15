@@ -15,19 +15,18 @@ typedef struct Node
 typedef struct
 {
     // add Node* head, tail, current_position and other necessary fields here
-    Node *head;
+    Node* head;
     Node *tail;
     Node *current_position;
     int size;
-    
 } LinkedList;
 
 
 void init_linkedlist(LinkedList *list)
 {
-    // printf("implement init_linkedlist\n");
+    printf("implement init_linkedlist\n");
     // initialize head, tail with null
-    list->head= NULL;
+    list->head=NULL;
     list->tail=NULL;
     list->current_position=NULL;
     list->size=0;
@@ -36,24 +35,22 @@ void init_linkedlist(LinkedList *list)
 
 void clear(LinkedList *list)
 {
-    printf("cleared list\n");
-    Node *current = list->head;
+    printf("Implement clear\n");
     // traverse the list and free each node
-    while (current!=NULL)
+    Node *active_node=list->head;
+    while (active_node!=NULL)
     {
-        Node *next_node = current->next;
-        free(current);
-        current = next_node;
-
-
+        Node *freenode=active_node;
+        active_node=active_node->next;
+        free(freenode);
     }
-
     
     // set head and tail to null
-    list->head= NULL;
+     list->head=NULL;
     list->tail=NULL;
     list->current_position=NULL;
     list->size=0;
+
 }
 
 
@@ -61,7 +58,6 @@ int get_size(LinkedList *list)
 {
     printf("Implement get_size\n");
     return list->size;
-
 }
 
 
@@ -69,26 +65,26 @@ void append(LinkedList *list, int value)
 {
     printf("Implement append\n");
     // create a new node and set its value
-    Node *newNode = (Node *)malloc(sizeof(Node));
-    newNode->data=value;
-    newNode->next=NULL;
-
+    Node *new_node= (Node*)malloc(sizeof(Node));
+    new_node->data=value;
+    new_node->next=NULL;
+    new_node->prev=list->tail;
     // consider the case when the list is empty and when it isnt
-    if (list->size==0)
+    if (list->tail == NULL)
     {
-        newNode->prev=NULL;
-        list->head=newNode;
-        list->tail=newNode;
-
+        list->head=new_node;
     }
     else{
-        newNode->prev=list->tail;
-        list->tail->next=newNode;
-        list->tail=newNode;
-
-
+        list->tail->next=new_node;
     }
+    list->tail=new_node;
     list->size++;
+
+    if (list->current_position== NULL)
+    {
+        list->current_position=new_node;
+    }
+    
     
 }
 
@@ -97,21 +93,28 @@ void insert(LinkedList *list, int value)
 {
     printf("Implement insert\n");
     // create a new node and set its value
-    Node *newNode = (Node*) malloc (sizeof(Node));
-
-
-
-    newNode->data=value;
+    Node *new_node=(Node*) malloc(sizeof(Node));
     // place it at the current position (check order of operations)
+    new_node->data=value;
     if (list->current_position==NULL)
     {
-        newNode->next=NULL;
-        newNode->prev = NULL;
+         new_node->next=NULL;
+         new_node->prev=NULL;
+
     }
     else{
-        newNode->next=list->current_position;
+        new_node->next=list->current_position;
+        if (list->current_position->prev=NULL)
+        {
+            new_node->prev=NULL;
+            list->head=new_node;
+        }
+        else{
+            new_node->prev=list->current_position->prev;
+        }
         
     }
+    
     // consider the case when the list is empty and when it isnt
 }
 
