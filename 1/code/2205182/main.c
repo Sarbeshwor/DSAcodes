@@ -1,7 +1,7 @@
-//#include "arraylist.h"
+//include "arraylist.h"
 //#include "lind.h"
 #include <stdio.h>
-#include "kaisar.h"
+#include "linkedlist.h"
 
 
 
@@ -18,8 +18,8 @@ int main()
     int size;
     fscanf(file, "%d %d", &size, &capacity);
 
-    //ArrayList list;
-    //init_arraylist(&list, capacity);
+    // ArrayList list;
+    // init_arraylist(&list, capacity);
     LinkedList list;
     init_linkedlist(&list);
     int i;
