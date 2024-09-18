@@ -37,18 +37,48 @@ void move_and_shift(ArrayList *list, int value)
    list->array[list->size-1]=temp;
     
 }
-int discard(ArrayList *list)
-{
-    printf("discarded %d\n", list->array[list->currentPosition]);
-    int currentElement = list->array[list->currentPosition];
-    free(list->array[list->currentPosition]);
-    for (int i = list->currentPosition; i < list->size; i++)
-    {
-        list->array[i] = list->array[i + 1];
-    }
-    list->size--;
-    return currentElement;
-}
+// int discard(ArrayList *list)
+// {
+//     printf("discarded %d\n", list->array[list->currentPosition]);
+//     int currentElement = list->array[list->currentPosition];
+//     free(list->array[list->currentPosition]);
+//     for (int i = list->currentPosition; i < list->size; i++)
+//     {
+//         list->array[i] = list->array[i + 1];
+//     }
+//     list->size--;
+//     return currentElement;
+// }
 // int main(){
 //     return 0;
 // }
+
+void print_list(ArrayList *list)
+{
+    if (list->size==0)
+    {
+        printf("<  >\n");
+    }
+    else{
+        printf("< ");
+        for (int i = 0; i < list->size; i++)
+        {
+            if (i==list->currentPosition)
+            {
+                printf("|%d",list->array[i]);
+            }
+            else{
+                printf("%d",list->array[i]);
+            }
+            if (i!=list->size-1)
+            {
+                printf("  ");
+            }
+            
+            
+        }
+            printf(" >\n");
+
+        
+    }
+}

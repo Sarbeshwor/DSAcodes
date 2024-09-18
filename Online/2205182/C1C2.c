@@ -1,5 +1,5 @@
-//#include "arraylist.h"
-#include "linkedlist.h"
+#include "arraylist.h"
+//#include "linkedlist.h"
 #include <stdio.h>
 
 
@@ -18,10 +18,10 @@ int main()
     fscanf(file, "%d", &number_of_books);
     printf("number_of_books: %d\n", number_of_books);
 
-    // ArrayList books;
-    // init_arraylist(&books, CAPACITY);
-    LinkedList books;
-    init_linkedlist(&books);
+    ArrayList books;
+    init_arraylist(&books, CAPACITY);
+    // LinkedList books;
+    // init_linkedlist(&books);
     int i;
     for (i=0; i<number_of_books; i++)
     {
@@ -47,11 +47,11 @@ int main()
             move_and_shift(&books, param);
             // use printf here
         }
-        else if (func == 3)
-        {
-            discard(&books);
-            // use printf here
-        }
+        // else if (func == 3)
+        // {
+        //     discard(&books);
+        //     // use printf here
+        // }
         print_list(&books);
     }
 
