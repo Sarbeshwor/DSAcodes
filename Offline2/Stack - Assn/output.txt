@@ -1,4 +1,4 @@
--------------Testing Array-based Stack-------------
+-------------Testing Linked-List based Stack-------------
 Pushed 10 onto the stack.
 Current stack: 10 
 -------------------
@@ -27,5 +27,32 @@ Is stack empty? No
 Current stack: 10 20 
 -------------------
 Cleared the stack.
+Current stack: 
+-------------------
+Is stack empty? Yes
+Current stack: 
+-------------------
+Pushed 40 onto the stack.
+Current stack: 40 
+-------------------
+Pushed 50 onto the stack.
+Current stack: 40 50 
+-------------------
+Popped value: 50
+Current stack: 40 
+-------------------
+Popped value: 40
+Current stack: 
+-------------------
+Stack is empty, no top element.
+Current stack: 
+-------------------
+Stack is empty, nothing to pop.
+Current stack: 
+-------------------
+Current stack length: 0
+Current stack: 
+-------------------
+Is stack empty? Yes
 Current stack: 
 -------------------

@@ -56,28 +56,42 @@ public:
         }
 
         // pop the top element and return it
-
+        Node *topElement = topNode;
+        int value = topElement->data;
         // update the topNode and currentSize
+        topNode=topNode->next;
         // delete the node that was popped
+        delete topElement;
+        currentSize--;
+        return value;
     }
 
     // Return the top element without removing it
     int top()
     {
         // write your code here. Check if the stack is empty and return -1 if it is.
+        if (isEmpty())
+        {
+            return -1;
+        }
+        
         // return the top element
+        return topNode->data;
     }
 
     // Return the number of elements in the stack
     int length()
     {
         // write your code here. Return the number of elements in the stack
+        return currentSize;
     }
 
     // Check if the stack is empty
     bool isEmpty()
     {
         // write your code here. Return true if the stack is empty, false otherwise
+        return topNode == NULL;
+        
     }
 
     // Clear the stack
