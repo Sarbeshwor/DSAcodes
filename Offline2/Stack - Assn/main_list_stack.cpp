@@ -100,7 +100,7 @@ void processStackOperations(Stack &stack, FILE *inputFile, FILE *outputFile)
             break;
         }
         }
-        fprintf(outputFile, "-------------------\n");
+        fprintf(outputFile, "------------------\n");
     }
 }
 
