@@ -102,7 +102,7 @@ void processStackOperations(Stack &stack, FILE *inputFile, FILE *outputFile)
         }
         fprintf(outputFile, "------------------\n");
     }
-}
+} // edit for streak
 
 int main()
 {
