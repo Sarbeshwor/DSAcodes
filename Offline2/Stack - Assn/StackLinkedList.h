@@ -38,10 +38,11 @@ public:
     void push(int x)
     {
         // write your code here. Create a new node with the value x and push it onto the stack
-        Node *newNode = new Node(x, topNode);
+        Node* newNode = new Node(x);
         //    newNode->next->data=x;
         // update the topNode and currentSize
         //    topNode->data=x;
+        newNode->next=topNode;
         topNode = newNode;
         currentSize++;
     }

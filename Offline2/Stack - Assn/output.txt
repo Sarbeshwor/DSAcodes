@@ -1,30 +1,42 @@
--------------Testing Linked-List based Stack-------------
-Pushed 10 onto the stack.
-Current stack: 10 
+-------------Testing Array-based Stack-------------
+Pushed 100 onto the stack.
+Current stack: 100 
 -------------------
 Pushed 20 onto the stack.
-Current stack: 10 20 
+Current stack: 100 20 
 -------------------
 Pushed 30 onto the stack.
-Current stack: 10 20 30 
+Current stack: 100 20 30 
 -------------------
 Pushed 40 onto the stack.
-Current stack: 10 20 30 40 
+Current stack: 100 20 30 40 
 -------------------
-Popped value: 40
-Current stack: 10 20 30 
+Pushed 9 onto the stack.
+Current stack: 100 20 30 40 9 
 -------------------
-Popped value: 30
-Current stack: 10 20 
--------------------
-Top value: 20
-Current stack: 10 20 
--------------------
-Current stack length: 2
-Current stack: 10 20 
+Popped value: 9
+Current stack: 100 20 30 40 
 -------------------
 Is stack empty? No
-Current stack: 10 20 
+Current stack: 100 20 30 40 
+-------------------
+Cleared the stack.
+Current stack: 
+-------------------
+Invalid operation: 7
+Current stack: 
+-------------------
+Stack is empty, nothing to pop.
+Current stack: 
+-------------------
+Stack is empty, no top element.
+Current stack: 
+-------------------
+Current stack length: 0
+Current stack: 
+-------------------
+Is stack empty? Yes
+Current stack: 
 -------------------
 Cleared the stack.
 Current stack: 
