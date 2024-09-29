@@ -1,151 +1,85 @@
+#include "QueueLinkedList.h" 
 #include <iostream>
 using namespace std;
 
-class Queue
+class Stack
 {
 private:
-    int *array;
     //write your code here. Add additional private variables if necessary
-    int capacity;
-    int front;
-    int last;
-
+    Queue q;
 public:
     // Constructor
-    Queue()
+    Stack()
     {
-        array = new int[1];
-        capacity = 1;
-        front=0;
-        last=0;
-
         //write your code here. Initialize additional private variables if necessary
-        
     }
-    Queue(int initialCapacity)
+    Stack(int initialCapacity)
     {
-        array = new int[initialCapacity]; // Allocate initial memory
         //write your code here. Initialize additional private variables if necessary
-        capacity = initialCapacity;
-        front=0;
-        last=0;
-
     }
 
     // Destructor
-    ~Queue()
+    ~Stack(){}
+
+    // Push an element onto the stack
+    void push(int x)
     {
-        delete[] array; // Free dynamically allocated memory
+        //write your code here.
+        q.enqueue(x);
+        //push the element onto the stack
     }
 
-    // Helper function to resize the array when full
-    void resize(int newCapacity)
+    // Remove and return the top element
+    int pop()
     {
-        int *newArray = new int[newCapacity]; // Allocate new array
-
-        //write your code here. Copy the elements from the old array to the new array
-        for (int i = front; i < last; i++)
-        {
-            newArray[front] = array[front+1];
-
-        }
-        
-
-        delete[] array; // Free old memory
-
-        //write your code here. Update the capacity and array pointers
-        capacity = newCapacity;
-        array = newArray;
-
-    }
-
-    // Enqueue an element onto the queue
-    void enqueue(int x)
-    {
-        //write your code here. Check if the array is full and resize if necessary.
-        if(capacity==last){
-            resize(2*capacity);
-        }
-        array[last]=x;
-        last++;
-
-    }
-
-    // Remove and return the peek element
-    int dequeue()
-    {
-       //write your code here. Check if the stack is empty and return -1 if it is.
-       if (isEmpty())
-       {
-        return -1;
-       }
-       
-       //remove the peek element and return it
-         int removelement=array[front];
-        //  delete array[front];
-        for (int i = 0; i < last+1; i++)
-        {
-            array[i]=array[i+1];
-        }
-        last--;
-
-        
-
-            
-       //resize the array if necessary
-       if(last==capacity/4){
-        resize(capacity/4);
-       }
-       return removelement;
-    }
-
-    // Return the peek element without removing it
-    int peek()
-    {
-        
-        //write your code here. Check if the queue is empty and return -1 if it is.
-        if (isEmpty())
-        {
-            /* code */
+        //write your code here. Check if the stack is empty and return -1 if it is.
+        if(isEmpty()){
             return -1;
         }
-        
-        //return the peek element
-        return array[front];
+        for(int i = 0; i < length() - 1; i++){
+            int val = q.dequeue();
+            q.enqueue(val);
+        }
+        //pop the top element and return it
+        return q.dequeue();
     }
 
-    // Return the number of elements in the queue
+    // Return the top element without removing it
+    int top()
+    {
+        //write your code here. Check if the stack is empty and return -1 if it is.
+        if(isEmpty()){
+            return -1;
+        }
+        //return the top element
+        for(int i = 0; i < length() - 1; i++){
+            int val = q.dequeue();
+            q.enqueue(val);
+        }
+        int top = q.peek();
+        int val = q.dequeue();
+        q.enqueue(val);
+        return top;
+    }
+
+    // Return the number of elements in the stack
     int length()
     {
-        //write your code here. Return the number of elements in the queue
-        return last;
+        //write your code here. Return the number of elements in the stack
+        return q.length();
     }
 
-    // Check if the queue is empty
+    // Check if the stack is empty
     bool isEmpty()
     {
-
-        
-        //write your code here. Return true if the queue is empty, false otherwise
-        if (last==0)
-        {
-            return true;
-        }
-        else{
-            return false;
-        }
-        
+        //write your code here. Return true if the stack is empty, false otherwise
+        return q.isEmpty();
     }
 
-    // Clear the queue
+    // Clear the stack
     void clear()
     {
-        //write your code here. Clear the queue. resize the array to 1
-        delete [] array;
-        capacity=1;
-        array= new int[capacity];
-        last=0;
-        front=0;
-
+        //write your code here. Clear the stack.
+        q.clear();
     }
 };

@@ -1,4 +1,5 @@
-#include "StackUsingQueue.h" // Include Linked List-based Stack implementation
+#include "queue.h" // Include Linked List-based Stack implementation
+
 #include <fstream>
 #include <sstream>
 
@@ -39,7 +40,7 @@ void processStackOperations(Stack &stack, ifstream &inputFile, ofstream &outputF
 
         switch (operation)
         {
-        case 11:
+        case 1:
         { // Push operation
             int value;
             if (ss >> value)
@@ -54,7 +55,7 @@ void processStackOperations(Stack &stack, ifstream &inputFile, ofstream &outputF
             printStack(stack, outputFile);
             break;
         }
-        case 12:
+        case 2:
         { // Pop operation
             if (!stack.isEmpty())
             {
@@ -68,7 +69,7 @@ void processStackOperations(Stack &stack, ifstream &inputFile, ofstream &outputF
             printStack(stack, outputFile);
             break;
         }
-        case 13:
+        case 3:
         { // Top operation
             if (!stack.isEmpty())
             {
@@ -81,6 +82,7 @@ void processStackOperations(Stack &stack, ifstream &inputFile, ofstream &outputF
             printStack(stack, outputFile);
             break;
         }
+        
         default:
         {
             outputFile << "Invalid operation: " << operation << endl;
@@ -103,7 +105,7 @@ int main()
         return 1;
     }
 
-    StackUsingQueue stack; // Stack using queue-based implementation
+    Stack stack; // Stack using queue-based implementation
 
     outputFile << "-------------Testing Queue based Stack-------------" << endl;
     processStackOperations(stack, inputFile, outputFile);
