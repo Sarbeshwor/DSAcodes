@@ -45,6 +45,7 @@ public:
         newNode->next=topNode;
         topNode = newNode;
         currentSize++;
+           
     }
 
     // Remove and return the top element

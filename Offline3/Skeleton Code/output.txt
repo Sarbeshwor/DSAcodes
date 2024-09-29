@@ -1,0 +1,61 @@
+-------------Testing Array-based Queue-------------
+Enqueueed 100 onto the queue.
+Current queue: 100 
+-------------------
+Enqueueed 20 onto the queue.
+Current queue: 100 20 
+-------------------
+Enqueueed 30 onto the queue.
+Current queue: 100 20 30 
+-------------------
+Enqueueed 40 onto the queue.
+Current queue: 100 20 30 40 
+-------------------
+Enqueueed 9 onto the queue.
+Current queue: 100 20 30 40 9 
+-------------------
+Dequeueped value: 100
+Current queue: 20 30 40 9 
+-------------------
+Dequeueped value: 20
+Current queue: 30 40 9 
+-------------------
+Peek value: 30
+Current queue: 30 40 9 
+-------------------
+Current queue length: 3
+Current queue: 30 40 9 
+-------------------
+Is queue empty? No
+Current queue: 30 40 9 
+-------------------
+Cleared the queue.
+Current queue: 
+-------------------
+Is queue empty? Yes
+Current queue: 
+-------------------
+Enqueueed 40 onto the queue.
+Current queue: 40 
+-------------------
+Enqueueed 50 onto the queue.
+Current queue: 40 50 
+-------------------
+Dequeueped value: 40
+Current queue: 50 
+-------------------
+Dequeueped value: 50
+Current queue: 
+-------------------
+Queue is empty, no peek element.
+Current queue: 
+-------------------
+Queue is empty, nothing to dequeue.
+Current queue: 
+-------------------
+Current queue length: 0
+Current queue: 
+-------------------
+Is queue empty? Yes
+Current queue: 
+-------------------
