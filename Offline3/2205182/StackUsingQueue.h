@@ -34,6 +34,7 @@ public:
         q1.enqueue(x);
         //push the element onto the stack
         topelement = x;
+        
     }
 
     // Remove and return the top element
@@ -46,8 +47,8 @@ public:
        
        //pop the top element and return it
          for(int i = 0; i < length() - 1; i++){
-              int val = q1.dequeue();
-              q1.enqueue(val);
+              int popelement = q1.dequeue();
+              q1.enqueue(popelement);
          }
       return q1.dequeue();
     }
@@ -82,5 +83,6 @@ public:
     {
         //write your code here. Clear the stack.
        q1.clear();
+       topelement=0;
     }
 };

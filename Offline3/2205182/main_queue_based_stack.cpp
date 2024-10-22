@@ -1,4 +1,4 @@
-#include "queue.h" // Include Linked List-based Stack implementation
+#include "StackUsingQueue.h" // Include Linked List-based Stack implementation
 
 #include <fstream>
 #include <sstream>
