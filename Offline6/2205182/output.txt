@@ -1,0 +1,30 @@
+Is heap empty? Yes
+Max Heap property is preserved.
+Heap: 
+Max Heap property is preserved.
+Heap: 
+Max Heap property is preserved.
+Heap: 
+Heap: 
+Heap: 
+Max Heap property is preserved.
+Error: findMax() called, but the heap is empty.
+Heap: 
+Error: increaseKey() called with invalid index or invalid new value.
+Error: extractMax() called, but the heap is empty.
+Heap: 
+Heap: 
+Max Heap property is preserved.
+Heap size: 0
+Heap: 
+Is heap empty? Yes
+Deleted element at index 0
+Deleted element at index 2
+Deleted element at index 0
+Deleted element at index 0
+Deleted element at index 0
+Deleted element at index 0
+Deleted element at index 0
+Deleted element at index 0
+Heap: 
+Max Heap property is preserved.
